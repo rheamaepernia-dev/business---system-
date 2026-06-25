@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>System Evaluator</title>
+ <style>
+ body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+ input { width: 100%; padding: 10px; margin-bottom: 15px; box-sizing: border-
+box; }
+ button { width: 100%; padding: 15px; background: #007bff; color: white; border: 
+none; border-radius: 5px; font-weight: bold; }
+ .output-box { background: #f4f4f4; padding: 15px; margin-top: 20px; border <body>
+ <h2>Operations Evaluator</h2>
+ <p><b>SYSTEM INPUTS</b></p>
+ <label>Meat Cost (PHP):</label>
+ <input type="number" id="meatCost" placeholder="e.g., 500">
+ <label>Bread Cost (PHP):</label>
+ <input type="number" id="breadCost" placeholder="e.g., 150">
+ <label>Total Burgers Made:</label>
+ <input type="number" id="totalBurgers" placeholder="e.g., 50">
+ <label>Total Hours Worked:</label>
+ <input type="number" id="hoursWorked" placeholder="e.g., 4">
+ <button onclick="processSystem()">Process Logic</button>
+ <div class="output-box">
+ <p><b>SYSTEM OUTPUTS</b></p>
+ <p id="ratioOut">Ratio (Meat to Bread Cost): --</p>
+ <p id="rateOut">Rate (Production Speed): --</p>
+ </div>
+ <script>
+ function processSystem() {
+ // 1. Gather Inputs
+ let meat = document.getElementById("meatCost").value;
+ let bread = document.getElementById("breadCost").value;
+ let burgers = document.getElementById("totalBurgers").value;
+ let hours = document.getElementById("hoursWorked").value;
+ // 2. Process Logic
+ // Ratio: Comparing same units (PHP to PHP)
+ let ratio = meat / bread;
+ // Rate: Comparing different units (Burgers to Hours)
+ let rate = burgers / hours;
+ // 3. Generate Output
+ document.getElementById("ratioOut").innerHTML = 
+ "Ratio (Meat to Bread Cost): <b>" + ratio.toFixed(2) + " to 1</b>";
+ document.getElementById("rateOut").innerHTML = 
+ "Rate (Production Speed): <b>" + rate.toFixed(2) + " burgers/hour</b>";
+ }
+ </script>
+</body>
+</html>
